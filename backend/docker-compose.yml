@@ -1,0 +1,46 @@
+
+
+services:
+  db:
+    image: postgres:15
+    container_name: db-formativo
+    restart: always
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: bdproyectoformativo
+      TZ: "America/Bogota"
+      PGTZ: "America/Bogota"
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build: .
+    container_name: backend-formativo
+    restart: always
+    environment:
+      - TZ=America/Bogota
+      - NODE_ENV=production
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    command: node dist/src/main.js
+
+  redis:
+    image: redis:alpine
+    container_name: agro-tech-redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  postgres_data:
+  redis_data:
