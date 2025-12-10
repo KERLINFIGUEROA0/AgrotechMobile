@@ -41,17 +41,17 @@ export default function FormularioRecuperarClave(): ReactElement {
 
 
   return (
-    <div className="w-full max-w-2xl">
-      <Card className="shadow-2xl rounded-2xl bg-white/95 border border-green-200">
-        <CardBody className="flex flex-col gap-6 p-8 md:p-12">
-          <div className="flex items-center gap-4">
-            <img src={logo} alt="Logo" className="h-14" />
-            <h1 className="text-2xl md:text-2xl font-extrabold text-gray-800 flex items-center gap-2">
-              <Lock className="w-6 h-6 text-gray-700" />
+    <div className="w-full">
+      <Card className="shadow-lg rounded-xl bg-white border border-green-200">
+        <CardBody className="flex flex-col gap-4 p-6">
+          <div className="flex items-center gap-3">
+            <img src={logo} alt="Logo" className="h-10" />
+            <h1 className="text-xl font-bold text-gray-800 flex items-center gap-2">
+              <Lock className="w-5 h-5 text-gray-700" />
               Restablecer Contraseña
             </h1>
           </div>
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-gray-600 leading-relaxed">
             Ingresa tu número de identificación para enviarte un enlace de recuperación.
           </p>
           <div className="w-full">
@@ -61,7 +61,7 @@ export default function FormularioRecuperarClave(): ReactElement {
               variant="bordered"
               size="lg"
               fullWidth
-              className="h-14 text-lg px-4"
+              className="text-base"
               value={identificacion !== null ? String(identificacion) : ""}
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
                 const valor = e.target.value;
@@ -75,7 +75,7 @@ export default function FormularioRecuperarClave(): ReactElement {
               size="lg"
               fullWidth
               onPress={manejarSolicitud}
-              className="rounded-lg bg-green-600 hover:bg-green-700 shadow-md text-white"
+              className="rounded-lg bg-green-600 hover:bg-green-700 shadow-md text-white font-medium"
               disabled={cargando}
             >
               {cargando ? "Enviando..." : "Enviar Enlace"}

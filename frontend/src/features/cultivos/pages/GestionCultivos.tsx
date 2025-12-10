@@ -377,7 +377,7 @@ export default function GestionCultivosPage(): ReactElement {
 
       {/* Main Stats Grid con animaciones escalonadas - Optimizado para móvil */}
       <motion.div
-        className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 lg:gap-6"
+        className="grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-4 lg:gap-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.6, duration: 0.5 }}
@@ -388,12 +388,12 @@ export default function GestionCultivosPage(): ReactElement {
           transition={{ delay: 0.7, duration: 0.5 }}
         >
           <Card className="border-l-4 border-l-green-500 hover:shadow-lg transition-all duration-300">
-            <CardBody className="p-6">
+            <CardBody className="p-3 sm:p-4 lg:p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-600">Total Cultivos</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-600">Total Cultivos</p>
                   <motion.p
-                    className="text-2xl font-bold text-gray-900"
+                    className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900"
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.9, type: "spring", stiffness: 200 }}
@@ -403,16 +403,16 @@ export default function GestionCultivosPage(): ReactElement {
                   <p className="text-xs text-gray-500">registrados</p>
                 </div>
                 <motion.div
-                  className="p-3 bg-green-100 rounded-full"
+                  className="p-2 sm:p-3 bg-green-100 rounded-full"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ type: "spring", stiffness: 400 }}
                 >
-                  <FaThList className="h-6 w-6 text-green-600" />
+                  <FaThList className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-green-600" />
                 </motion.div>
               </div>
               <Progress
                 value={Math.min(stats.total * 10, 100)}
-                className="mt-3"
+                className="mt-2 sm:mt-3"
                 color="success"
                 size="sm"
                 aria-label={`Progreso de cultivos totales: ${stats.total}`}
@@ -427,12 +427,12 @@ export default function GestionCultivosPage(): ReactElement {
           transition={{ delay: 0.8, duration: 0.5 }}
         >
           <Card className="border-l-4 border-l-yellow-500 hover:shadow-lg transition-all duration-300">
-            <CardBody className="p-6">
+            <CardBody className="p-3 sm:p-4 lg:p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-600">Activos</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-600">Activos</p>
                   <motion.p
-                    className="text-2xl font-bold text-gray-900"
+                    className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900"
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 1.0, type: "spring", stiffness: 200 }}
@@ -442,16 +442,16 @@ export default function GestionCultivosPage(): ReactElement {
                   <p className="text-xs text-gray-500">en crecimiento</p>
                 </div>
                 <motion.div
-                  className="p-3 bg-yellow-100 rounded-full"
+                  className="p-2 sm:p-3 bg-yellow-100 rounded-full"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ type: "spring", stiffness: 400 }}
                 >
-                  <FaLeaf className="h-6 w-6 text-yellow-600" />
+                  <FaLeaf className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-yellow-600" />
                 </motion.div>
               </div>
               <Progress
                 value={(stats.activos / Math.max(stats.total, 1)) * 100}
-                className="mt-3"
+                className="mt-2 sm:mt-3"
                 color="warning"
                 size="sm"
                 aria-label={`Progreso de cultivos activos: ${stats.activos}`}
@@ -466,12 +466,12 @@ export default function GestionCultivosPage(): ReactElement {
           transition={{ delay: 0.9, duration: 0.5 }}
         >
           <Card className="border-l-4 border-l-blue-500 hover:shadow-lg transition-all duration-300">
-            <CardBody className="p-6">
+            <CardBody className="p-3 sm:p-4 lg:p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-600">Variedades</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-600">Variedades</p>
                   <motion.p
-                    className="text-2xl font-bold text-gray-900"
+                    className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900"
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 1.1, type: "spring", stiffness: 200 }}
@@ -481,16 +481,16 @@ export default function GestionCultivosPage(): ReactElement {
                   <p className="text-xs text-gray-500">tipos diferentes</p>
                 </div>
                 <motion.div
-                  className="p-3 bg-blue-100 rounded-full"
+                  className="p-2 sm:p-3 bg-blue-100 rounded-full"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ type: "spring", stiffness: 400 }}
                 >
-                  <FaLeaf className="h-6 w-6 text-blue-600" />
+                  <FaLeaf className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-blue-600" />
                 </motion.div>
               </div>
               <Progress
                 value={Math.min(stats.tipos * 20, 100)}
-                className="mt-3"
+                className="mt-2 sm:mt-3"
                 color="primary"
                 size="sm"
                 aria-label={`Progreso de variedades: ${stats.tipos}`}
@@ -505,12 +505,12 @@ export default function GestionCultivosPage(): ReactElement {
           transition={{ delay: 1.0, duration: 0.5 }}
         >
           <Card className="border-l-4 border-l-red-500 hover:shadow-lg transition-all duration-300">
-            <CardBody className="p-6">
+            <CardBody className="p-3 sm:p-4 lg:p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-600">Total Plantas</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-600">Total Plantas</p>
                   <motion.p
-                    className="text-2xl font-bold text-gray-900"
+                    className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900"
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 1.2, type: "spring", stiffness: 200 }}
@@ -520,16 +520,16 @@ export default function GestionCultivosPage(): ReactElement {
                   <p className="text-xs text-gray-500">plantadas</p>
                 </div>
                 <motion.div
-                  className="p-3 bg-red-100 rounded-full"
+                  className="p-2 sm:p-3 bg-red-100 rounded-full"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ type: "spring", stiffness: 400 }}
                 >
-                  <FaTools className="h-6 w-6 text-red-600" />
+                  <FaTools className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-red-600" />
                 </motion.div>
               </div>
               <Progress
                 value={Math.min(stats.totalPlantas / 10, 100)}
-                className="mt-3"
+                className="mt-2 sm:mt-3"
                 color="danger"
                 size="sm"
                 aria-label={`Progreso de plantas totales: ${stats.totalPlantas}`}
@@ -660,7 +660,7 @@ export default function GestionCultivosPage(): ReactElement {
 
         {/* Cuerpo del Contenedor (Scrollable) */}
         <CardBody className="p-0 overflow-hidden bg-gray-50/30">
-          <div className="h-full w-full p-3 sm:p-4 lg:p-6 overflow-y-auto max-h-[75vh] sm:max-h-full">
+          <div className="h-full w-full p-2 sm:p-3 lg:p-6 overflow-y-auto max-h-[70vh] sm:max-h-[75vh] lg:max-h-full">
             
             {activeTab === 'lista' ? (
               <>
@@ -705,7 +705,7 @@ export default function GestionCultivosPage(): ReactElement {
                   </motion.div>
                 ) : (
                   <motion.div
-                    className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3 xl:grid-cols-4 lg:gap-4"
+                    className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4 lg:gap-6"
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"
@@ -716,7 +716,6 @@ export default function GestionCultivosPage(): ReactElement {
                           key={cultivo.id}
                           variants={cardVariants}
                           whileHover={{ y: -5 }}
-                          transition={{ type: "spring", stiffness: 300, damping: 20 }}
                           initial={{ opacity: 0, y: 20, scale: 0.95 }}
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, scale: 0.95 }}
@@ -725,6 +724,7 @@ export default function GestionCultivosPage(): ReactElement {
                             duration: 0.5,
                             type: "spring",
                             stiffness: 100,
+                            damping: 15,
                             exit: { duration: 0.2 }
                           }}
                         >
@@ -931,10 +931,10 @@ export default function GestionCultivosPage(): ReactElement {
                   selectedSubloteCultivo={selectedSubloteCultivo}
                   onSelectSubloteCultivo={setSelectedSubloteCultivo}
                   customInfo={(lote) => (
-                    <div className="p-3 min-w-[180px]">
+                    <div className="p-2 sm:p-3 min-w-[160px] sm:min-w-[180px]">
                       <div className="flex items-center justify-between mb-2">
-                        <h4 className="font-bold text-gray-800">{lote.nombre}</h4>
-                        <Chip size="sm" color={lote.estado === 'Activo' ? 'success' : 'default'} variant="flat" className="h-5 text-[10px]">
+                        <h4 className="font-bold text-gray-800 text-sm sm:text-base">{lote.nombre}</h4>
+                        <Chip size="sm" color={lote.estado === 'Activo' ? 'success' : 'default'} variant="flat" className="h-4 sm:h-5 text-[9px] sm:text-[10px]">
                           {lote.estado}
                         </Chip>
                       </div>
@@ -944,16 +944,16 @@ export default function GestionCultivosPage(): ReactElement {
                     </div>
                   )}
                 />
-                {/* Panel lateral informativo sobre el mapa */}
-                <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md p-4 rounded-xl shadow-lg z-[400] border border-gray-100 w-64">
-                  <h4 className="font-bold text-gray-800 flex items-center gap-2 mb-2">
-                    <MapIcon size={16} className="text-blue-500"/> Explorador de Lotes
+                {/* Panel lateral informativo sobre el mapa - Optimizado para móvil */}
+                <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-white/95 backdrop-blur-md p-2 sm:p-4 rounded-lg sm:rounded-xl shadow-lg z-[400] border border-gray-100 w-48 sm:w-64 max-w-[calc(100vw-1rem)]">
+                  <h4 className="font-bold text-gray-800 flex items-center gap-1 sm:gap-2 mb-1 sm:mb-2 text-sm sm:text-base">
+                    <MapIcon size={14} className="text-blue-500"/> Explorador de Lotes
                   </h4>
-                  <p className="text-xs text-gray-500 mb-0">
+                  <p className="text-xs text-gray-500 mb-0 leading-tight">
                     Selecciona un lote para ver los detalles del lote, los sublotes que tiene y sus cultivos asociados.
                   </p>
                   {selectedLote && (
-                    <div className="mt-3 bg-blue-50 border border-blue-100 rounded-lg p-2">
+                    <div className="mt-2 sm:mt-3 bg-blue-50 border border-blue-100 rounded-lg p-2">
                       <p className="text-xs font-semibold text-blue-700">Lote seleccionado:</p>
                       <p className="text-sm font-bold text-blue-900">{selectedLote.nombre}</p>
                     </div>

@@ -71,21 +71,21 @@ export default function NuevaContrasena(): ReactElement {
   };
 
   return (
-    <div className="w-full max-w-lg mx-auto">
-      <Card className="mx-auto w-full max-w-md shadow-2xl rounded-2xl bg-white/95 border border-green-200">
-        <CardBody className="flex flex-col gap-4 p-6 md:p-8">
+    <div className="w-full">
+      <Card className="w-full shadow-lg rounded-xl bg-white border border-green-200">
+        <CardBody className="flex flex-col gap-4 p-6">
           <div className="flex items-center gap-3">
-            <img src={logo} alt="logo" className="h-12" />
-            <h2 className="text-lg font-extrabold">Introduzca su nueva contraseña</h2>
+            <img src={logo} alt="logo" className="h-10" />
+            <h2 className="text-lg font-bold">Introduzca su nueva contraseña</h2>
           </div>
 
           <Input
             label="Contraseña nueva"
             type={show ? "text" : "password"}
             variant="bordered"
-            size="md"
+            size="lg"
             fullWidth
-            className="h-12 text-sm px-3"
+            className="text-base"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             endContent={
@@ -93,8 +93,9 @@ export default function NuevaContrasena(): ReactElement {
                 type="button"
                 aria-label={show ? "Ocultar contraseña" : "Mostrar contraseña"}
                 onClick={() => setShow((s) => !s)}
-                className="focus:outline-none text-gray-600"
+                className="focus:outline-none text-gray-600 p-2"
               >
+                {show ? "🙈" : "👁️"}
               </button>
             }
             autoComplete="new-password"
@@ -104,9 +105,9 @@ export default function NuevaContrasena(): ReactElement {
             label="Confirme su contraseña"
             type={show ? "text" : "password"}
             variant="bordered"
-            size="md"
+            size="lg"
             fullWidth
-            className="h-12 text-sm px-3"
+            className="text-base"
             value={confirm}
             onChange={(e) => setConfirm(e.target.value)}
             endContent={
@@ -114,8 +115,9 @@ export default function NuevaContrasena(): ReactElement {
                 type="button"
                 aria-label={show ? "Ocultar contraseña" : "Mostrar contraseña"}
                 onClick={() => setShow((s) => !s)}
-                className="focus:outline-none text-gray-600"
+                className="focus:outline-none text-gray-600 p-2"
               >
+                {show ? "🙈" : "👁️"}
               </button>
             }
             autoComplete="new-password"
@@ -127,7 +129,7 @@ export default function NuevaContrasena(): ReactElement {
               size="lg"
               fullWidth
               onPress={submit}
-              className="rounded-lg bg-green-600 hover:bg-green-700 shadow-md text-white"
+              className="rounded-lg bg-green-600 hover:bg-green-700 shadow-md text-white font-medium"
               disabled={loading}
             >
               {loading ? "Procesando..." : "Actualizar"}
